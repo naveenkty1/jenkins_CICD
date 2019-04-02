@@ -67,5 +67,16 @@ stages{
             '''   
     }
   }
+   stage('Deploy Container on Kube Cluster'){
+       agent {
+           label 'kubectl'
+       }
+       steps{    
+            sh '''
+            echo "Deploying Container to Kube Cluster"
+            kubectl get nodes
+            '''    
+       }
+   }
 }
 }
