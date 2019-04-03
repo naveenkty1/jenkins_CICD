@@ -60,10 +60,10 @@ stages{
             sh '''
             echo "Build Sample Nginx webserver image"
             cd nginx
-            #docker login --username $REGISTRY_USER --password $REGISTRY_PWD $DOCKER_REGISTRY_URL
-            #docker build --force-rm -t $IMAGE_NAME:$BUILD_NUMBER .
-            #docker tag $IMAGE_NAME:$BUILD_NUMBER $DOCKER_REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER
-            #docker push $DOCKER_REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER
+            docker login --username $REGISTRY_USER --password $REGISTRY_PWD $DOCKER_REGISTRY_URL
+            docker build --force-rm -t $IMAGE_NAME:$BUILD_NUMBER .
+            docker tag $IMAGE_NAME:$BUILD_NUMBER $DOCKER_REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER
+            docker push $DOCKER_REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER
             '''   
     }
   }
